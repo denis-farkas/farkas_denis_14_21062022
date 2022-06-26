@@ -1,0 +1,47 @@
+:root {
+  --bs-body-font-family: Roboto !important;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: Roboto !important;
+  color: #000000;
+  max-width: 1240px;
+}
+
+h1,
+span,
+p {
+  font-family: Roboto !important;
+}
+
+.container {
+  max-width: 1126px;
+  height: 779px;
+  margin: 0 auto;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+.row {
+  flex-wrap: nowrap;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  padding-right: 4.3rem;
+}
+
+a:hover {
+  color: #000000;
+}
+
+.row {
+  --bs-gutter-x: 0;
+  margin: 0;
+}
+
+.row > * {
+  padding: 0 0;
+}

@@ -1,0 +1,16 @@
+.nav-item.active,
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 5vw;
+}
+
+.navbar {
+  border: none;
+  font-size: 24px;
+}
+
+.navbar-nav {
+  flex-direction: row;
+  margin-left: 5vw;
+}
