@@ -1,16 +1,14 @@
 import mongoose from 'mongoose';
 
-const userSchema = mongoose.Schema(
+const employeesSchema = mongoose.Schema(
   {
     firstname: {
       type: String,
-      required: true,
       trim: true,
     },
 
     lastname: {
       type: String,
-      required: true,
       trim: true,
     },
 
@@ -26,31 +24,26 @@ const userSchema = mongoose.Schema(
 
     street: {
       type: String,
-      required: true,
       trim: true,
     },
 
     city: {
       type: String,
-      required: true,
       trim: true,
     },
 
     state: {
       type: String,
-      required: true,
       trim: true,
     },
 
     zipcode: {
       type: Number,
-      required: true,
       trim: true,
     },
 
     department: {
       type: String,
-      required: true,
       trim: true,
     },
   },
@@ -59,5 +52,5 @@ const userSchema = mongoose.Schema(
   }
 );
 
-const User = mongoose.model('User', userSchema);
-export default User;
+const Employee = mongoose.model('Employee', employeesSchema);
+export default Employee;

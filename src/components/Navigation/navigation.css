@@ -1,8 +1,13 @@
-.nav-item.active,
 .nav-item {
   color: #fff;
   text-decoration: none;
-  margin-right: 5vw;
+  margin-right: 1vw;
+}
+
+.nav-item.active {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
 }
 
 .navbar {
@@ -12,5 +17,5 @@
 
 .navbar-nav {
   flex-direction: row;
-  margin-left: 5vw;
+  margin-left: 14vw;
 }

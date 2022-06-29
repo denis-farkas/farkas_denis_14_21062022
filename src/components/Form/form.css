@@ -1,0 +1,50 @@
+.form {
+  max-width: 600px;
+}
+
+.red-gradient {
+  color: white;
+  background: linear-gradient(rgb(208, 28, 22), 70%, rgb(215, 42, 36));
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 10px;
+  margin: 5px 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.form h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.address {
+  margin-top: 10px;
+  background-color: rgb(246, 243, 243);
+  border: 1px solid rgb(241, 237, 237);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.black {
+  color: black;
+}
+
+.error-msg {
+  font-size: 18px;
+  font-weight: 500;
+  color: red;
+}
+
+.btn {
+  width: 30%;
+  margin: 15px auto;
+  background-color: #93ad18;
+  border: none;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.8rem;
+}

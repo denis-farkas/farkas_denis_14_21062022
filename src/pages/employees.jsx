@@ -1,13 +1,14 @@
 import React from 'react';
-import { EmployeesProvider } from '../context/EmployeesProvider';
-const employees = () => {
+import useEmployees from '../hooks/useEmployees';
+
+const ListEmployees = () => {
+  const { employees } = useEmployees();
+  console.log(employees);
   return (
-    <EmployeesProvider>
-      <div>
-        <p>ok</p>
-      </div>
-    </EmployeesProvider>
+    <div>
+      <p>ok</p>
+    </div>
   );
 };
 
-export default employees;
+export default ListEmployees;

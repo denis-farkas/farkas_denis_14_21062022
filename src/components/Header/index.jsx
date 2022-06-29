@@ -9,10 +9,10 @@ import './header.css';
 function Header() {
   return (
     <div className="header col-lg-12">
-      <div className="logo col-lg-2">
+      <div className="logo col-lg-4">
         <img className="small-img" src="images/logo.jpg" alt="logo" />
       </div>
-      <div className="col-lg-10">
+      <div className="col-lg-8">
         <Navigation />
       </div>
     </div>
