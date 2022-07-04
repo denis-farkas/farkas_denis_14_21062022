@@ -1,14 +1,12 @@
 import React from 'react';
-import useEmployees from '../hooks/useEmployees';
+import Table from '../components/Table';
 
-const ListEmployees = () => {
-  const { employees } = useEmployees();
-  console.log(employees);
+const employees = () => {
   return (
     <div>
-      <p>ok</p>
+      <Table />
     </div>
   );
 };
 
-export default ListEmployees;
+export default employees;

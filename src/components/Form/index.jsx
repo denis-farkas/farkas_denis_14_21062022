@@ -84,7 +84,10 @@ const Form = () => {
               className="form-control"
               value={employee.birthdate}
               onChange={(e) =>
-                setEmployee({ ...employee, birthdate: e.target.value })
+                setEmployee({
+                  ...employee,
+                  birthdate: e.target.value,
+                })
               }
             />
           </div>
@@ -97,7 +100,10 @@ const Form = () => {
               className="form-control"
               value={employee.startdate}
               onChange={(e) =>
-                setEmployee({ ...employee, startdate: e.target.value })
+                setEmployee({
+                  ...employee,
+                  startdate: e.target.value,
+                })
               }
             />
           </div>

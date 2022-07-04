@@ -12,7 +12,6 @@ const EmployeesProvider = ({ children }) => {
   };
 
   const submitEmployee = async (employee) => {
-    console.log(employee);
     try {
       const config = {
         headers: {
@@ -25,33 +24,39 @@ const EmployeesProvider = ({ children }) => {
         employee,
         config
       );
-      console.log(data);
+      if (data !== null) {
+        showAlert('Employee Created !');
+      }
     } catch (error) {
       console.error(error);
+      showAlert(error);
     }
   };
 
-  const listEmployees = async () => {
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
+  useEffect(() => {
+    const listEmployees = async () => {
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
 
-      const { data } = await axios.get(
-        'http://localhost:4000/api/employees',
-        config
-      );
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+        const { data } = await axios.get(
+          'http://localhost:4000/api/employees',
+          config
+        );
+        setEmployees(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    listEmployees();
+  }, []);
 
   return (
     <EmployeesContext.Provider
-      value={{ employees, showAlert, alert, submitEmployee, listEmployees }}
+      value={{ employees, showAlert, alert, submitEmployee }}
     >
       {children}
     </EmployeesContext.Provider>
