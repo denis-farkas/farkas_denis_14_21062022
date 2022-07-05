@@ -9,7 +9,7 @@ import {
 
 const router = express.Router();
 
-//Create, Read Users
+//CRUD employees Routes
 
 router.route('/').get(listEmployees).post(createEmployee);
 

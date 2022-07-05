@@ -9,7 +9,8 @@ const app = express();
 dotenv.config();
 connectDB();
 
-//configure cors
+//fix to "req.body undefined"
+//(because we use Express@4 - https://akhromieiev.com/req-body-undefined-express/)
 
 app.use(bodyParser.json());
 app.use(
@@ -18,6 +19,7 @@ app.use(
   })
 );
 
+//configure cors, all origins for test
 app.use(cors({ origin: '*' }));
 
 //Routing

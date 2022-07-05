@@ -4,6 +4,8 @@ import useEmployees from '../../hooks/useEmployees';
 import './form.css';
 
 const Form = () => {
+  //Initialize fields of form in state
+
   const [employee, setEmployee] = useState({
     firstname: '',
     lastname: '',
@@ -17,6 +19,7 @@ const Form = () => {
   });
   const { showAlert, alert, submitEmployee } = useEmployees();
 
+  //validate fields in form and submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (

@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Form from '../components/Form';
+import Modal from '../components/Modal';
+import useModal from '../hooks/useModal.jsx';
+import useEmployees from '../hooks/useEmployees';
 
-const home = () => {
+const Home = () => {
+  const { isShowing, toggle } = useModal();
+  const { success } = useEmployees();
+
+  useEffect(() => {
+    if (success) {
+      toggle();
+    }
+  }, []);
+
   return (
     <div>
       <Form />
+      <Modal isShowing={isShowing} hide={toggle} />
     </div>
   );
 };
 
-export default home;
+export default Home;

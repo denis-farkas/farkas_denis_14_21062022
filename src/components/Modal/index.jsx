@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Update from '../Update';
 import './modal.css';
 
 const Modal = ({ isShowing, hide }) =>
@@ -11,7 +10,6 @@ const Modal = ({ isShowing, hide }) =>
             <div className="modal-wrapper">
               <div className="modal">
                 <div className="modal-header">
-                  <h4>Update Name</h4>
                   <button
                     type="button"
                     className="modal-close-button"
@@ -21,7 +19,7 @@ const Modal = ({ isShowing, hide }) =>
                   </button>
                 </div>
                 <div className="modal-body">
-                  <Update />
+                  <h4>Employee Created!</h4>
                 </div>
               </div>
             </div>

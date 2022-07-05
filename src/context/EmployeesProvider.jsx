@@ -1,11 +1,55 @@
-import { useState, useEffect, useContext, createContext } from 'react';
+import React from 'react';
+import { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
 
 const EmployeesContext = createContext();
 
 const EmployeesProvider = ({ children }) => {
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Firstname',
+        accessor: 'firstname',
+      },
+      {
+        Header: 'Lastname',
+        accessor: 'lastname',
+      },
+      {
+        Header: 'Birthdate',
+        accessor: 'birthdate',
+      },
+      {
+        Header: 'Startdate',
+        accessor: 'startdate',
+      },
+      {
+        Header: 'Street',
+        accessor: 'street',
+      },
+      {
+        Header: 'City',
+        accessor: 'city',
+      },
+      {
+        Header: 'State',
+        accessor: 'state',
+      },
+      {
+        Header: 'Zip code',
+        accessor: 'zipcode',
+      },
+      {
+        Header: 'Department',
+        accessor: 'department',
+      },
+    ],
+    []
+  );
+
   const [employees, setEmployees] = useState([]);
   const [alert, setAlert] = useState([]);
+  const [success, setSuccess] = useState(false);
 
   const showAlert = (alert) => {
     setAlert(alert);
@@ -25,7 +69,7 @@ const EmployeesProvider = ({ children }) => {
         config
       );
       if (data !== null) {
-        showAlert('Employee Created !');
+        setSuccess(true);
       }
     } catch (error) {
       console.error(error);
@@ -51,12 +95,13 @@ const EmployeesProvider = ({ children }) => {
         console.error(error);
       }
     };
+
     listEmployees();
   }, []);
 
   return (
     <EmployeesContext.Provider
-      value={{ employees, showAlert, alert, submitEmployee }}
+      value={{ employees, showAlert, alert, submitEmployee, success, columns }}
     >
       {children}
     </EmployeesContext.Provider>
