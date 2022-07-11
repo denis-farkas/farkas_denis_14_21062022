@@ -40,7 +40,7 @@ const Form = () => {
 
     submitEmployee(employee);
   };
-  console.log(employee, 'form');
+
   const { msg } = alert;
   const [birthDate, setBirthDate] = useState(new Date());
   const [startDate, setStartDate] = useState(new Date());
@@ -86,6 +86,8 @@ const Form = () => {
             <DatePicker
               className="form-control"
               selected={birthDate}
+              dateFormat="MM/dd/yyyy"
+              maxDate={new Date()}
               onChange={(date) => {
                 setBirthDate(date);
                 setEmployee({
@@ -102,6 +104,7 @@ const Form = () => {
             <DatePicker
               className="form-control"
               selected={startDate}
+              dateFormat="MM/dd/yyyy"
               onChange={(date) => {
                 setStartDate(date);
                 setEmployee({
@@ -180,29 +183,17 @@ const Form = () => {
             <select
               name="department"
               className="form-control"
-              onChange={(e) =>
-                setEmployee({ ...employee, department: e.target.value })
-              }
+              value={select}
+              onChange={(e) => {
+                setSelect(e.target.value);
+                setEmployee({ ...employee, department: e.target.value });
+              }}
             >
-              <select
-                className="form-control"
-                value={select}
-                onChange={(e) => {
-                  setSelect(e.target.value);
-                  setEmployee({ ...employee, department: e.target.value });
-                }}
-              >
-                {Services.map((option) => (
-                  <option key={option.abbreviation} value={option.name}>
-                    {option.name}
-                  </option>
-                ))}
-              </select>
-              <option>Sales</option>
-              <option>Marketing</option>
-              <option>Engineering</option>
-              <option>Human Resources</option>
-              <option>Legal</option>
+              {Services.map((option) => (
+                <option key={option.short} value={option.name}>
+                  {option.name}
+                </option>
+              ))}
             </select>
           </div>
 

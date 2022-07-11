@@ -5,5 +5,5 @@ export const formatDate = (date) => {
     day: 'numeric',
   };
 
-  return new Date(date).toLocaleDateString('fr-FR', opcions);
+  return new Date(date).toLocaleDateString('es-PA', opcions);
 };

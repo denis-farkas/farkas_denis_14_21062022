@@ -2,6 +2,7 @@ import React from 'react';
 import Table from '../components/Table';
 import useEmployees from '../hooks/useEmployees';
 import { formatDate } from '../utils/formatDate';
+
 const Employees = () => {
   const { employees, columns } = useEmployees();
 
@@ -9,8 +10,6 @@ const Employees = () => {
     element.birthdate = formatDate(element.birthdate);
     element.startdate = formatDate(element.startdate);
   });
-
-  console.log(employees);
 
   return (
     <div>

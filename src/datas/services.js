@@ -1,23 +1,27 @@
 const Services = [
   {
+    name: '',
+    short: 'Serv',
+  },
+  {
     name: 'Sales',
-    abbreviation: 'Sal',
+    short: 'Sal',
   },
   {
     name: 'Marketing',
-    abbreviation: 'Mark',
+    short: 'Mark',
   },
   {
     name: 'Engineering',
-    abbreviation: 'Eng',
+    short: 'Eng',
   },
   {
     name: 'Human Ressources',
-    abbreviation: 'Res',
+    short: 'Res',
   },
   {
     name: 'Legal',
-    abrreviation: 'Leg',
+    short: 'Leg',
   },
 ];
 
