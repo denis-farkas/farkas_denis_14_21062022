@@ -1,23 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
-import useEmployees from '../../hooks/useEmployees';
+import useEmployee from '../../hooks/useEmployee';
+import DatePicker from 'react-datepicker';
+import States from '../../datas/states.js';
+import Services from '../../datas/services.js';
+import 'react-datepicker/dist/react-datepicker.css';
+
 import './form.css';
 
 const Form = () => {
   //Initialize fields of form in state
 
-  const [employee, setEmployee] = useState({
-    firstname: '',
-    lastname: '',
-    birthdate: '',
-    startdate: '',
-    street: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    department: '',
-  });
-  const { showAlert, alert, submitEmployee } = useEmployees();
+  const { employee, setEmployee, showAlert, alert, submitEmployee } =
+    useEmployee();
 
   //validate fields in form and submit
   const handleSubmit = (e) => {
@@ -45,7 +40,13 @@ const Form = () => {
 
     submitEmployee(employee);
   };
+  console.log(employee, 'form');
   const { msg } = alert;
+  const [birthDate, setBirthDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [selected, setSelected] = useState(States[0].name);
+  const [select, setSelect] = useState(Services[0].name);
+
   return (
     <>
       <div className="container form">
@@ -82,32 +83,32 @@ const Form = () => {
             <label htmlFor="birthdate" className="form-label mt-4">
               Birth date
             </label>
-            <input
-              type="text"
+            <DatePicker
               className="form-control"
-              value={employee.birthdate}
-              onChange={(e) =>
+              selected={birthDate}
+              onChange={(date) => {
+                setBirthDate(date);
                 setEmployee({
                   ...employee,
-                  birthdate: e.target.value,
-                })
-              }
+                  birthdate: date,
+                });
+              }}
             />
           </div>
           <div className="form-group">
             <label htmlFor="startdate" className="form-label mt-4">
               Start date
             </label>
-            <input
-              type="text"
+            <DatePicker
               className="form-control"
-              value={employee.startdate}
-              onChange={(e) =>
+              selected={startDate}
+              onChange={(date) => {
+                setStartDate(date);
                 setEmployee({
                   ...employee,
-                  startdate: e.target.value,
-                })
-              }
+                  startdate: date,
+                });
+              }}
             />
           </div>
           <fieldset className="address">
@@ -142,14 +143,20 @@ const Form = () => {
               <label htmlFor="state" className="form-label mt-4">
                 State
               </label>
-              <input
-                type="text"
+              <select
                 className="form-control"
-                value={employee.state}
-                onChange={(e) =>
-                  setEmployee({ ...employee, state: e.target.value })
-                }
-              />
+                value={selected}
+                onChange={(e) => {
+                  setSelected(e.target.value);
+                  setEmployee({ ...employee, state: e.target.value });
+                }}
+              >
+                {States.map((option) => (
+                  <option key={option.abbreviation} value={option.name}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="form-group">
               <label htmlFor="zipcode" className="form-label mt-4">
@@ -177,6 +184,20 @@ const Form = () => {
                 setEmployee({ ...employee, department: e.target.value })
               }
             >
+              <select
+                className="form-control"
+                value={select}
+                onChange={(e) => {
+                  setSelect(e.target.value);
+                  setEmployee({ ...employee, department: e.target.value });
+                }}
+              >
+                {Services.map((option) => (
+                  <option key={option.abbreviation} value={option.name}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
               <option>Sales</option>
               <option>Marketing</option>
               <option>Engineering</option>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect, createContext } from 'react';
+import useEmployee from '../hooks/useEmployee';
 import axios from 'axios';
 
 const EmployeesContext = createContext();
@@ -48,34 +49,7 @@ const EmployeesProvider = ({ children }) => {
   );
 
   const [employees, setEmployees] = useState([]);
-  const [alert, setAlert] = useState([]);
-  const [success, setSuccess] = useState(false);
-
-  const showAlert = (alert) => {
-    setAlert(alert);
-  };
-
-  const submitEmployee = async (employee) => {
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-
-      const { data } = await axios.post(
-        'http://localhost:4000/api/employees',
-        employee,
-        config
-      );
-      if (data !== null) {
-        setSuccess(true);
-      }
-    } catch (error) {
-      console.error(error);
-      showAlert(error);
-    }
-  };
+  const { success } = useEmployee();
 
   useEffect(() => {
     const listEmployees = async () => {
@@ -97,11 +71,14 @@ const EmployeesProvider = ({ children }) => {
     };
 
     listEmployees();
-  }, []);
+  }, [success]);
 
   return (
     <EmployeesContext.Provider
-      value={{ employees, showAlert, alert, submitEmployee, success, columns }}
+      value={{
+        employees,
+        columns,
+      }}
     >
       {children}
     </EmployeesContext.Provider>

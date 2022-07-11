@@ -4,6 +4,7 @@ import Employees from './pages/employees.jsx';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { EmployeesProvider } from './context/EmployeesProvider';
+import { EmployeeProvider } from './context/EmployeeProvider.jsx';
 import './styles/style.css';
 
 function App() {
@@ -11,12 +12,14 @@ function App() {
     <Router>
       <Header />
       <div>
-        <EmployeesProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/employees" element={<Employees />} />
-          </Routes>
-        </EmployeesProvider>
+        <EmployeeProvider>
+          <EmployeesProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/employees" element={<Employees />} />
+            </Routes>
+          </EmployeesProvider>
+        </EmployeeProvider>
       </div>
       <Footer />
     </Router>
