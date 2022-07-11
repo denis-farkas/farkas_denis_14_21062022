@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from '../components/Table';
+import Table, { SelectColumnFilter } from '../components/Table';
 import useEmployees from '../hooks/useEmployees';
 import { formatDate } from '../utils/formatDate';
 
