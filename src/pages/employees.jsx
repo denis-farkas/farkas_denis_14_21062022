@@ -1,5 +1,5 @@
 import React from 'react';
-import Table, { SelectColumnFilter } from '../components/Table';
+import Table from '../components/Table';
 import useEmployees from '../hooks/useEmployees';
 import { formatDate } from '../utils/formatDate';
 
@@ -12,9 +12,12 @@ const Employees = () => {
   });
 
   return (
-    <div>
+    <>
+      <div className="frame">
+        <h1 className="large-title">Current Employees</h1>
+      </div>
       <Table columns={columns} data={employees} />
-    </div>
+    </>
   );
 };
 

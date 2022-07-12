@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: left;
+  margin-bottom: 15px;
 }
 
 .small-img {

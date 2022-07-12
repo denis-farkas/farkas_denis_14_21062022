@@ -18,10 +18,10 @@ const Home = () => {
   }, [success]);
 
   return (
-    <div>
+    <>
       <Form />
       <Modal isShowing={isShowing} hide={toggle && reload} />
-    </div>
+    </>
   );
 };
 

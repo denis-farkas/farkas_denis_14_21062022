@@ -54,3 +54,13 @@ a:hover {
   align-items: center;
   height: 60px;
 }
+
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.large-title {
+  margin: 50px;
+}

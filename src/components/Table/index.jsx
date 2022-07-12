@@ -1,4 +1,5 @@
 import React from 'react';
+import './table.css';
 
 import {
   useTable,
@@ -44,9 +45,6 @@ const Table = ({ columns, data }) => {
     prepareRow,
     canPreviousPage,
     canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
     nextPage,
     previousPage,
     setPageSize,
@@ -66,13 +64,35 @@ const Table = ({ columns, data }) => {
 
   return (
     <>
-      <GlobalFilter
-        preGlobalFilteredRows={preGlobalFilteredRows}
-        globalFilter={state.globalFilter}
-        setGlobalFilter={setGlobalFilter}
-      />
-
-      <table {...getTableProps()} border="1">
+      <div className="table-utils row">
+        <div className="show">
+          <span>
+            Show
+            <select
+              className="selective"
+              value={state.pageSize}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value));
+              }}
+            >
+              {[5, 10, 20].map((pageSize) => (
+                <option key={pageSize} value={pageSize}>
+                  {pageSize}
+                </option>
+              ))}
+            </select>
+            entries
+          </span>
+        </div>
+        <div className="filter">
+          <GlobalFilter
+            preGlobalFilteredRows={preGlobalFilteredRows}
+            globalFilter={state.globalFilter}
+            setGlobalFilter={setGlobalFilter}
+          />
+        </div>
+      </div>
+      <table className="table table-hover" {...getTableProps()} border="1">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -80,8 +100,16 @@ const Table = ({ columns, data }) => {
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
                   {/* Add a sort direction indicator */}
-                  <span>
-                    {column.isSorted ? (column.isSortedDesc ? ' ▼' : ' ▲') : ''}
+                  <span className="grey">
+                    {column.isSorted ? (
+                      column.isSortedDesc ? (
+                        <span className="grey-blue"> ▼</span>
+                      ) : (
+                        <span className="grey-blue"> ▲</span>
+                      )
+                    ) : (
+                      '  ▼'
+                    )}
                   </span>
                 </th>
               ))}
@@ -103,37 +131,34 @@ const Table = ({ columns, data }) => {
           })}
         </tbody>
       </table>
-      <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {'>>'}
-        </button>{' '}
-        <span>
-          Page{' '}
-          <strong>
-            {state.pageIndex + 1} of {pageOptions.length}
-          </strong>{' '}
-        </span>
-        <select
-          value={state.pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value));
-          }}
-        >
-          {[5, 10, 20].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
+      <div className="table-utils">
+        <div className="showing">
+          <span>
+            Showing 1 to {state.pageSize} of {preGlobalFilteredRows.length}{' '}
+            entries
+          </span>
+        </div>
+        <div className="pagination">
+          <button
+            className="neutral"
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+          >
+            {'Previous'}
+          </button>
+          <span className="nav-page">
+            <button className="btn-page">
+              <strong>{state.pageIndex + 1}</strong>
+            </button>
+          </span>
+          <button
+            className="neutral"
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+          >
+            {'Next'}
+          </button>
+        </div>
       </div>
     </>
   );
