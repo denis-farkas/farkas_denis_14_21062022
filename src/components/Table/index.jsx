@@ -134,8 +134,7 @@ const Table = ({ columns, data }) => {
       <div className="table-utils">
         <div className="showing">
           <span>
-            Showing 1 to {state.pageSize} of {preGlobalFilteredRows.length}{' '}
-            entries
+            Showing 1 to {page.length} of {preGlobalFilteredRows.length} entries
           </span>
         </div>
         <div className="pagination">
