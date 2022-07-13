@@ -17,27 +17,20 @@ Then run the command `npm run dev`.
 ## 3. Frontend
 
 To start this project, first you need to install all the dependencies  
-with the command `npm install`.
+with the command `npm install` in a new terminal.
 
 Then run the command `npm start`.
 
 To create a production build, use `npm run build`.
 
-## 3. API Rest usage
+## 4. Technologies
 
-use the API Rest
-
-## 3. Document source code with JSDoc
-
-Installation: [npm Jsdoc installation](https://www.npmjs.com/package/jsdoc)  
-Not necessary if you have already perform a global install.  
-Then, run the command `npm run doc`
-
-## Technologies
-
+Node Express
+MongoDb cluster option aws
 Jsx
 Bootstrap 5
 React
+Context
 
 ## Contribute to the project
 
@@ -45,8 +38,8 @@ No contribution needed for this project
 
 ## Authors
 
-SportSee :denis farkas
+HRnet :denis farkas
 
 ## Licensing
 
-This project was built under SportSee licence.
+This project was built under HRnet licence.
