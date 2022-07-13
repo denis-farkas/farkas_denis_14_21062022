@@ -52,7 +52,6 @@ const Form = () => {
       <div className="container form">
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit}>
-          <div className={`${alert.error ? 'red-gradient' : ''}`}>{msg}</div>
           <div className="form-group">
             <label htmlFor="firstname" className="form-label mt-4">
               Firstname
@@ -197,6 +196,7 @@ const Form = () => {
             </select>
           </div>
 
+          <div className={`${alert.error ? 'red-gradient' : ''}`}>{msg}</div>
           <div className="center">
             <button type="submit" className="btn btn-success">
               Save
