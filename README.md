@@ -6,9 +6,9 @@
 
 Please follow the instructions below to start the project
 
-## 2. Project launch
+## PROJECT LAUNCH
 
-## 3. API usage
+## 2. API usage
 
 Change the directory with `cd backend`.
 Install all the dependencies with `npm install`.
@@ -16,7 +16,7 @@ Then run the command `npm run dev`.
 The PORT is 4000
 API endPoint to list employee with method get : `http://localhost:4000/api/employees`
 
-## 4. Frontend
+## 3. Frontend
 
 To start this project, first you need to install all the dependencies  
 with the command `npm install` in a new terminal.
@@ -25,7 +25,7 @@ Then run the command `npm start`.
 
 To create a production build, use `npm run build`.
 
-## 5. Technologies
+## 4. Technologies
 
 Node Express
 MongoDb cluster option aws
