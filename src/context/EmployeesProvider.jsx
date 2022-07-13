@@ -49,8 +49,11 @@ const EmployeesProvider = ({ children }) => {
   );
 
   const [employees, setEmployees] = useState([]);
+
+  //success is the result of an register process(see: employeeProvider).
   const { success } = useEmployee();
 
+  //when success is true, useEffect allow to refresh the list of employees
   useEffect(() => {
     const listEmployees = async () => {
       try {

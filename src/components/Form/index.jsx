@@ -204,9 +204,6 @@ const Form = () => {
           </div>
         </form>
       </div>
-      <div id="confirmation" className="modal">
-        Employee Created!
-      </div>
     </>
   );
 };

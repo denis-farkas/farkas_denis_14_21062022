@@ -8,6 +8,11 @@ const Home = () => {
   const { isShowing, toggle, reload } = useModal();
   const { success } = useEmployee();
 
+  /*when register employee is effective, 
+  useEffect open the modal 
+  and after 3 secs reload home page 
+  with a refresh of form*/
+
   useEffect(() => {
     if (success) {
       toggle();
