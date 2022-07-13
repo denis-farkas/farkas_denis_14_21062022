@@ -32,10 +32,15 @@ To create a production build, use `npm run build`.
 ## 4. Technologies
 
 Node Express
+
 MongoDb cluster option aws
+
 Jsx
+
 Bootstrap 5
+
 React
+
 Context
 
 ## Contribute to the project
