@@ -11,9 +11,13 @@ Please follow the instructions below to start the project
 ## 2. API usage
 
 Change the directory with `cd backend`.
+
 Install all the dependencies with `npm install`.
+
 Then run the command `npm run dev`.
-The PORT is 4000
+
+The PORT is 4000.
+
 API endPoint to list employee with method get : `http://localhost:4000/api/employees`
 
 ## 3. Frontend
