@@ -11,7 +11,7 @@ const Navigation = () => {
             to={`/`}
             className={(nav) => (nav.isActive ? 'nav-item active' : 'nav-item')}
           >
-            <li className="nav-item">Accueil</li>
+            <li className="nav-item">Home</li>
           </NavLink>
           <NavLink
             to={`/employees`}

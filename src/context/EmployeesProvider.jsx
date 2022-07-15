@@ -2,10 +2,13 @@ import React from 'react';
 import { useState, useEffect, createContext } from 'react';
 import useEmployee from '../hooks/useEmployee';
 import axios from 'axios';
+import { format } from 'date-fns';
 
 const EmployeesContext = createContext();
 
 const EmployeesProvider = ({ children }) => {
+  //provide an array for the component Table
+
   const columns = React.useMemo(
     () => [
       {
@@ -19,10 +22,16 @@ const EmployeesProvider = ({ children }) => {
       {
         Header: 'Birthdate',
         accessor: 'birthdate',
+        Cell: ({ value }) => {
+          return format(new Date(value), 'MM/dd/yyyy');
+        },
       },
       {
         Header: 'Startdate',
         accessor: 'startdate',
+        Cell: ({ value }) => {
+          return format(new Date(value), 'MM/dd/yyyy');
+        },
       },
       {
         Header: 'Street',

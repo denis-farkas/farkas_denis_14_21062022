@@ -3,6 +3,7 @@ import Employee from '../models/Employee.js';
 //controllers for CRUD employees, we use now only listEmployees and createEmployee
 
 const listEmployees = async (req, res) => {
+  //find all the employees in db
   const employees = await Employee.find();
 
   res.json(employees);

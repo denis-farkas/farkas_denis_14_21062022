@@ -165,7 +165,7 @@ const Form = () => {
                 Zip code
               </label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 value={employee.zipcode}
                 onChange={(e) =>

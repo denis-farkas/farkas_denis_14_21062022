@@ -17,9 +17,12 @@ const EmployeeProvider = ({ children }) => {
     zipcode: '',
     department: '',
   });
-
+  //provide an alert when an error surge
   const [alert, setAlert] = useState([]);
+
+  //provide a variable success when employee is registered
   const [success, setSuccess] = useState(false);
+
   const Navigate = useNavigate();
 
   const showAlert = (alert) => {

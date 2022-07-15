@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
 
+//structure of the database
+//schema maps to a MongoDB collection and defines the shape
+// of the documents within that collection.
+
 const employeesSchema = mongoose.Schema(
   {
     firstname: {
