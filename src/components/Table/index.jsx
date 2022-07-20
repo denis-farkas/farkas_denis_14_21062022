@@ -86,8 +86,11 @@ const Table = ({ columns, data }) => {
         </div>
         <div className="filter">
           <GlobalFilter
+            //array of rows used right before filtering
             preGlobalFilteredRows={preGlobalFilteredRows}
+            //current global filter value, located on the state object
             globalFilter={state.globalFilter}
+            //update the global filter value
             setGlobalFilter={setGlobalFilter}
           />
         </div>
@@ -131,6 +134,7 @@ const Table = ({ columns, data }) => {
           })}
         </tbody>
       </table>
+
       <div className="table-utils">
         <div className="showing">
           <span>
